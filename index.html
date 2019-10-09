@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style></style>
+</head>
+<body>
+<!-- navbar -->
+    <nav>
+        <!-- mobile responsive -->
+        <div class="menu-mobile">
+                <a href="#" onclick="showMenu()">Menu</a>
+        </div>
+        <!-- end mobile -->
+        <ul id="menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PRODUK</a></li>
+            <li><a href="#">GALERI</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">MY INVENTORY</a></li>
+        </ul>
+    </nav>
+<!-- isi konten -->
+   <section id="box-profile">
+       <div class="img-profile">
+           <div class="photo" style="background-image:url(assets/img/profile.png);"></div>
+       </div>  
+       <div class="description">
+           <h1 id="idName">Andika Setyawan</h1>
+           <P id="idRole">WEB DEVELOPER</P>
+           <a href="#input-form" class="button bg-green" onclick="editForm()">EDIT</a>
+           <a href="#" class="button border-blue">RESUME</a>
+       </div>
+       <div class="information">
+                    <div class="data"  >
+                        <p class="field">Ailability</p>
+                        <p id="idAilability" class="text-grey">Fulltime</p>
+                    </div>
+                    <div class="data">
+                        <p class="field">Age</p>
+                        <p id="idAge" class="text-grey">24</p>
+                    </div>
+                    <div class="data">
+                        <p class="field">Location</p>
+                        <p id="idLocation" class="text-grey">Semarang, Indonesia</p>
+                    </div>
+                    <div class="data">
+                        <p class="field">Years Experience</p>
+                        <p id="idYears" class="text-grey">6</p>
+                    </div>
+                    <div class="data">
+                        <p class="field">Email</p>
+                        <p id="idEmail" class="text-grey">andikasetyawan222@gmail.com</p>
+                    </div>
+       </div>
+   </section>
+
+   <!-- form -->
+   <section id="input-form">
+       <form method="#" action="#">
+           <div class="form">
+            <label>Nama</label>
+            <input id="inpName" type="text" name="name">
+           </div>
+            <div class="form">
+                <label>Role</label>
+                <input id="inpRole" type="text" name="role">
+            </div>
+            <div class="form">
+                <label>Availability</label>
+                <input id="inpAvailability" type="text" name="availability">
+            </div>
+            <div class="form">
+                <label>Age</label>
+                <input  id="inpAge" type="number" name="age">
+            </div>
+            <div class="form">
+                <label>Location</label>
+                <input id="inpLocation" type="text" name="location">
+            </div>
+            <div class="form">
+                <label>Years Experience</label>
+                <input id="inpYears" type="number" name="years">
+            </div>
+            <div class="form">
+                <label>Email</label>
+                <input id="inpEmail" type="email" name="email">
+            </div>
+            <div class="form">
+                <input onclick="simpanForm()" type="submit" name="submit" value="SUBMIT" class="bg-blue">
+            </div>
+       </form>
+   </section>
+
+   <script>
+    // untuk form menu
+       var formMenu = document.getElementById("input-form");
+       formMenu.style.display = "none";
+
+    // fungsi untuk menampilkan dan menghiden form
+        function editForm(){
+            if(formMenu.style.display === "none"){
+                formMenu.style.display = "block";
+            }else{
+                formMenu.style.display = "none";
+            }
+        // menampilkan nama ke form untuk diedit
+        var name = document.getElementById("idName").innerHTML;
+        document.getElementById("inpName").value = name;
+
+        var Ailability = document.getElementById("idAilability").innerHTML;
+        document.getElementById("inpAvailability").value = Ailability;
+
+        var role = document.getElementById("idRole").innerHTML;
+        document.getElementById("inpRole").value = role;
+
+        var age = document.getElementById("idAge").innerHTML;
+        document.getElementById("inpAge").value = age;
+
+        var lokasi = document.getElementById("idLocation").innerHTML;
+        document.getElementById("inpLocation").value = lokasi;
+
+        var Experience = document.getElementById("idYears").innerHTML;
+        document.getElementById("inpYears").value = Experience;
+
+        var email = document.getElementById("idEmail").innerHTML;
+        document.getElementById("inpEmail").value = email;
+        }
+
+
+    // fungsi untuk simpan form agar dapat ditampilkan
+        function simpanForm(){
+            formMenu.style.display = "none";
+            
+            var name = document.getElementById("inpName").value;
+            document.getElementById("idName").innerHTML = name; 
+ 
+             var Ailability = document.getElementById("inpAvailability").value;
+            document.getElementById("idAilability").innerHTML = Ailability; 
+
+            var role = document.getElementById("inpRole").value;
+            document.getElementById("idRole").innerHTML = role;  
+
+            var Age = document.getElementById("inpAge").value;
+            document.getElementById("idAge").innerHTML = Age; 
+
+            var lokasi = document.getElementById("inpLocation").value;
+            document.getElementById("idLocation").innerHTML = lokasi; 
+
+            var pengalaman = document.getElementById("inpYears").value;
+            document.getElementById("idYears").innerHTML = pengalaman; 
+
+            var surel = document.getElementById("inpEmail").value;
+            document.getElementById("idEmail").innerHTML = surel; 
+        }
+
+
+
+       function showMenu(){
+           var menu = document.getElementById("menu");
+           var box = document.getElementById("box-profile");
+
+           if (menu.style.display === "block") {
+               menu.style.display = "none";
+               menu.style.paddingTop = "0px";
+           }else{
+               menu.style.display = "block";
+               box.style.paddingTop = "125px";
+           }
+       }
+
+   </script>
+
+</body>
+</html>
